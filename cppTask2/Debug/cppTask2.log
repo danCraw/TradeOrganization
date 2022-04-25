@@ -1,0 +1,19 @@
+﻿  Shop.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\list(1604,65): error C2676: бинарный "==": "const _Ty" не определяет этот оператор или преобразование к типу приемлемо к встроенному оператору
+          with
+          [
+              _Ty=Asset
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\list(1603): message : во время компиляции функции-члена класс шаблон "auto std::list<Asset,std::allocator<Asset>>::remove(const _Ty &)"
+          with
+          [
+              _Ty=Asset
+          ]
+C:\Users\Danil\source\repos\cppTask2\cppTask2\Warehouse.h(12): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "std::list<Asset,std::allocator<Asset>>"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\list(1615,1): error C2451: недопустимое условное выражение типа "void"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\list(1615,22): message : Выражение, имеющее тип void, нельзя преобразовать в другой тип
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\list(1604): message : выполняется компиляция ссылки на экземпляр шаблон функции "auto std::list<Asset,std::allocator<Asset>>::remove_if<std::list<Asset,std::allocator<Asset>>::remove::<lambda_68629d885e848c81558a0f5956d199cc>>(_Pr1)"
+          with
+          [
+              _Pr1=std::list<Asset,std::allocator<Asset>>::remove::<lambda_68629d885e848c81558a0f5956d199cc>
+          ]

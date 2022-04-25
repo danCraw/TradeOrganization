@@ -1,0 +1,3 @@
+﻿  Warehouse.cpp
+Shop.obj : error LNK2001: неразрешенный внешний символ "public: bool __thiscall Warehouse::checkProuctAssetForAvailability(class WholesaleClient &)" (?checkProuctAssetForAvailability@Warehouse@@QAE_NAAVWholesaleClient@@@Z).
+C:\Users\Danil\source\repos\cppTask2\Release\cppTask2.exe : fatal error LNK1120: неразрешенных внешних элементов: 1
