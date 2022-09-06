@@ -4,8 +4,10 @@
 #include "Shop.h"
 #include "Milk.h"
 #include "Warehouse.h"
-#include "Shop.h"
 #include "TradeOrganization.h"
+#include "RetailClient.h"
+#include <map>
+#include <list>
 
 
 int main()
@@ -18,27 +20,30 @@ int main()
     Asset* ma = new Asset(m, 5);
     Asset* ta = new Asset(t, 3);
 
-    RetailClient* rClient = new RetailClient(10, "Milk", 5);
+    list<Asset*> clientsAssets;
+    clientsAssets.push_back(ma);
+    Client* rClient = new RetailClient(1000, clientsAssets);
 
-    std::list<Asset*> wAssets;
-    std::list<Asset*> sAssets;
+    std::list<Asset*> *wAssets = new list<Asset*>;
+    std::list<Asset*>* sAssets = new list<Asset*>;
 
-    wAssets.push_back(ta);
-    wAssets.push_back(ma);
-    wAssets.push_back(ma);
-    wAssets.push_back(ma);
-    wAssets.push_back(ma);
-    wAssets.push_back(ma);
-    wAssets.push_back(ma);
-    sAssets.push_back(ma);
+    wAssets->push_back(ta);
+    wAssets->push_back(ma);
+    wAssets->push_back(ma);
+    wAssets->push_back(ma);
+    wAssets->push_back(ma);
+    wAssets->push_back(ma);
+    wAssets->push_back(ma);
+    sAssets->push_back(ma);
 
+    map<Asset*, int>* shopProductsForOrder = new map<Asset*, int>;
     Warehouse* w = new Warehouse(wAssets);
-    Shop* s = new Shop(w, sAssets, 10000);
+    Shop* s = new Shop(w, *shopProductsForOrder, sAssets, 10000);
     TradeOrganization* org = new TradeOrganization(s, w);
     org->getWarehouse()->showProducts();
 
     org->getShop()->showProducts();
-    org->getShop()->sell(rClient, 1);
+    org->getShop()->sell(rClient);
     org->getShop()->showProducts();
     cout << org->getShop()->getMoney();
 }

@@ -7,11 +7,11 @@ bool Seller::checkClientMoney(Asset* productAsset, Client* client) {
 	return true;
 }
 
-bool Seller::checkProuctAssetForAvailability(Client* client) {
-	if (getProductsAssets().size() != 0) {
-		for (Asset* a : getProductsAssets()) {
-			if (a->getProduct()->getType() == client->getNecessaryProductTypeForOrder()
-				&& a->getAmountProducts() == client->getAmountProductsForOrder())
+
+bool Seller::checkProuctAssetForAvailability(Asset* asset) {
+	if (getProductsAssets()->size() != 0) {
+		for (Asset* a : *getProductsAssets()) {
+			if (a == asset)
 			{
 				return true;
 			}
@@ -22,3 +22,18 @@ bool Seller::checkProuctAssetForAvailability(Client* client) {
 		return false;
 	}
 }
+
+
+bool Seller::checkAmountProductAssetForAvailability(Asset* asset, int amountAssets) {
+	int assetCounter = 0;
+	if (getProductsAssets()->size() != 0) {
+		for (Asset* a : *getProductsAssets()) {
+			if (a == asset)
+			{
+				assetCounter++;
+			}
+		}
+	}
+	return (assetCounter >= amountAssets);
+}
+

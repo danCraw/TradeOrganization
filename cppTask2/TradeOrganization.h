@@ -12,10 +12,10 @@ public:
 		this->warehouse = warehouse;
 	}
 
-	Shop setShop(Shop* s) { this->shop = s; }
-	Warehouse setWarehouse(Warehouse* w) { this->warehouse = w; }
+	void setShop(Shop* s) { this->shop = s; }
+	void setWarehouse(Warehouse* w) { this->warehouse = w; }
 
-	Shop* getShop() { return shop; }
-	Warehouse* getWarehouse() { return warehouse; }
+	Shop* &getShop() { return shop; }
+	Warehouse* &getWarehouse() { return warehouse; }
 };
 

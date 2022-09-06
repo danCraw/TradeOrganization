@@ -15,6 +15,7 @@ public:
         this->month = month;
         this->day = day;
     }
+
     void SetDate(int year, int month, int day);
 
     int getYear() { return year; }

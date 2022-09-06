@@ -10,10 +10,8 @@
 class Warehouse : public Seller
 {
 public:
-	Warehouse(list<Asset*> productsAssets) : Seller(productsAssets) {}
+	Warehouse(list<Asset*>* productsAssets) : Seller(productsAssets) {}
 
-	bool checkProductAvailability(WholesaleClient& client);
-	bool checkProuctAssetForAvailability(WholesaleClient& client);
-	list<Asset*> sell(WholesaleClient& client, int amountAssets);
+	list<Asset*>* sell(Client* client);
 	void showProducts();
 };

@@ -6,16 +6,19 @@ using namespace std;
 
 
 class WholesaleClient : public Client {
+    map<Asset*, int> productsAssetsForPurchase;
+
 public:
 	WholesaleClient() {}
 
-	WholesaleClient(int money, string necessaryProductType, int amountProducts) 
-		: Client(money, necessaryProductType, amountProducts) {}
+	WholesaleClient(int money, map<Asset*, int> productsAssetsForPurchase) : Client(money) {
+        this->productsAssetsForPurchase = productsAssetsForPurchase;
+    }
 
-	/*bool checkClientMoney(Asset* productAsset, Client* client) {
-		if (productAsset->getPrice() > client->getMoney()) {
-			return false;
-		}
-		return true;
-	}*/
+    map<Asset *, int> &getProductsAssetsForPurchase() {
+        return productsAssetsForPurchase;
+    }
+
+    void setProductsAssetsForPurchase(map<Asset*, int> &productsAssets) {
+        this->productsAssetsForPurchase = productsAssets; }
 };

@@ -4,6 +4,6 @@
 
 class RetailClient : public Client {
 public:
-	RetailClient(int money, string necessaryProductType, int amountProducts)
-		: Client(money, necessaryProductType, amountProducts) {}
+	RetailClient(int money, list<Asset*> productsAssets)
+		: Client(money, productsAssets) {}
 };

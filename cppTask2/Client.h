@@ -1,30 +1,38 @@
 #pragma once
+#include "Asset.h"
 #include <iostream>
-using namespace std; 
+#include <list>
+#include <map>
+using namespace std;
 
 
 class Client
 {
 private:
 	int money;
-	string necessaryProductType;
-	int amountProducts;
+    list<Asset*> productsAssetsForPurchase;
 public:
 	Client() {}
 
-	Client(int money, string necessaryProductType, int amountProducts) {
+	virtual ~Client() {};
+
+	Client(int money, list<Asset*> productsAssetsForPurchase) {
 		this->money = money;
-		this->necessaryProductType = necessaryProductType;
-		this->amountProducts = amountProducts;
+		this->productsAssetsForPurchase = productsAssetsForPurchase;
 	}
+
+    Client(int money) {
+        this->money = money;
+    }
 
 	void setMoney(int money) { this->money = money; }
 
 	int getMoney() { return money; }
-	string getNecessaryProductTypeForOrder() { return necessaryProductType; }
-	int getAmountProductsForOrder() { return amountProducts; }
 
-	void setNecessaryProductTypeForOrder(string necessaryProductType) { this->necessaryProductType = necessaryProductType; }
-	void setAmountProductsForOrder(int amountProductsForOrder) { this->amountProducts = amountProductsForOrder; }
+    list<Asset*> &getProductsAssetsForPurchase() { return productsAssetsForPurchase; }
+
+    void setProductsAssetsForPurchase(const list<Asset *> &productsAssetsForPurchase) {
+        Client::productsAssetsForPurchase = productsAssetsForPurchase;
+    }
 };
 
